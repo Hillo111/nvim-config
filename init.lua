@@ -22,7 +22,7 @@ require('telescope').setup{
 local lspconfig = require('lspconfig')
 
 -- local capabilities = vim.lsp.protocol.make_client_capabilities()
-local servers = {'clangd', 'tsserver', 'pyright', 'rubocop', 'lua_ls', 'bashls'}
+local servers = {'clangd', 'tsserver', 'pyright', 'rubocop', 'lua_ls', 'bashls', 'phpactor'}
 
 -- Enable some language servers with the additional completion capabilities offered by coq_nvim
 
@@ -35,6 +35,23 @@ require'lspconfig'.rust_analyzer.setup{
     }
   }
 }
+
+-- require'lspconfig'.intelephense.setup({
+--     settings = {
+--         intelephense = {
+--             stubs = {"bcmath", "bz2", "Core", "curl", "date", "dom", "fileinfo", "filter", "gd", "gettext", "hash", "iconv", "imap", "intl", "json", "libxml", "mbstring", "mcrypt", "mysql", "mysqli", "password", "pcntl", "pcre", "PDO", "pdo_mysql", "Phar", "readline", "regex", "session", "SimpleXML", "sockets", "sodium", "standard", "superglobals", "tokenizer", "xml", "xdebug", "xmlreader", "xmlwriter", "yaml", "zip", "zlib", "wordpress-stubs", "woocommerce-stubs", "acf-pro-stubs", "wordpress-globals", "wp-cli-stubs", "genesis-stubs", "polylang-stubs"},
+--             environment = {
+--                 includePaths = {'/home/mte90/.composer/vendor/php-stubs/', '/home/mte90/.composer/vendor/wpsyntex/'}
+--             },
+--             files = {
+--                 maxSize = 5000000;
+--             };
+--         };
+--     },
+--     capabilities = capabilities,
+--     on_attach = on_attach
+-- })
+
 
 local has_words_before = function()
   unpack = unpack or table.unpack
@@ -148,8 +165,26 @@ local border = {
     end
 	lspconfig.html.setup{
 		capabilities = capabilities,
-		filetypes = { "html", "templ", "html.erb" }
+		filetypes = { "html", "templ", "html.erb", "php" }
 	}
+    lspconfig.pyright.setup{
+      capabilities = capabilities,
+      settings = {
+        python = {
+          analysis = {
+            autoSearchPaths = true,
+            useLibraryCodeForTypes = true,
+            diagnosticMode = "openFilesOnly",
+          },
+          pythonPath = "/users/stas.gannutin/test/bin/python3",
+        }
+      }
+    }
+
+    lspconfig.java_language_server.setup{
+      capabilities = capabilities,
+      cmd = { '~/java-language-server/dist/lang_server_mac.sh' },
+    }
 
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
@@ -360,7 +395,41 @@ require("nvim-tree").setup{
       open = true,
       close = true
     }
+  },
+  view = {
+    side = 'right',
+    width = '30%'
   }
+}
+
+require("trouble").setup{
+
+}
+require('decisive').setup{}
+vim.api.nvim_create_user_command('CSVFormat', function()
+  require('decisive').align_csv({})
+end, {})
+
+local dap = require('dap')
+dap.adapters = {
+  python = {
+    type = 'executable',
+    command = 'python3',
+    args = { '-m', 'debugpy.adapter' }
+  }
+}
+
+local dap = require('dap')
+dap.configurations.python = {
+  {
+    type = 'python';
+    request = 'launch';
+    name = "Launch file";
+    program = "${file}";
+    pythonPath = function()
+      return 'python3'
+    end;
+  },
 }
 
 -- Default options:

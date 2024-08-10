@@ -31,4 +31,18 @@ vim.keymap.set('n', '<leader><', ':-tabmove<CR>', opts)
 
 vim.keymap.set('n', '<leader>c<CR>', ':NoiceDismiss<CR>', opts)
 
-vim.keymap.set('n', 'Y', '\"*y')
+vim.keymap.set('n', '<C-a>', 'ggVG', opts)
+vim.keymap.set('n', 'Y', '\"*y', opts)
+vim.keymap.set('v', 'Y', '\"*y', opts)
+
+vim.keymap.set('i', '<C-J>', 'copilot#Accept("\\<CR>")', {
+	expr = true,
+	replace_keycodes = false
+})
+
+-- vim.api.nvim_create_user_command('DAPToggleBP', 'lua require"dap".toggle_breakpoint()', {})
+-- vim.api.nvim_create_user_command('DAPContinue', 'lua require"dap".continue()', {});
+-- vim.api.nvim_create_user_command('DAPStepOver', 'lua require"dap".step_over()', {});
+-- vim.api.nvim_create_user_command('DAPStepInto', 'lua require"dap".step_into()', {});
+-- vim.api.nvim_create_user_command('DAPREPL', 'lua require"dap".repl.open()', {});
+vim.g.copilot_no_tab_map = true

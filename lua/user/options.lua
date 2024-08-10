@@ -21,7 +21,7 @@ opt.smartcase = true             -- bool: Override ignorecase if search contains
 opt.hlsearch= false             -- bool: Highlight search matches
 
 -- [[ Whitespace ]]
-opt.expandtab = true
+vim.cmd[[ set expandtab ]]
 opt.shiftwidth = 4               -- num:  Size of an indent
 opt.softtabstop = 4              -- num:  Number of spaces tabs count for in insert mode
 opt.tabstop = 4                  -- num:  Number of spaces tabs count for
@@ -32,3 +32,5 @@ opt.splitbelow = true            -- bool: Place new window below the current one
 
 opt.shell = 'zsh'
 opt.cmdheight = 0
+
+vim.cmd[[ set synmaxcol=256 ]]
