@@ -1,7 +1,6 @@
-local builtin = require('telescope.builtin')
-local themes = require('telescope.themes')
 local opts = { noremap = true, silent = true }
 
+local builtin = require('telescope.builtin')
 vim.keymap.set('', '<C-p>', builtin.find_files, opts)
 vim.keymap.set('', '<C-f>', builtin.live_grep, opts)
 vim.keymap.set('', '<leader>his', builtin.git_bcommits, opts)

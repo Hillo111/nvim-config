@@ -120,10 +120,6 @@ return packer.startup(function(use)
     --   `nvim-notify` is only needed, if you want to use the notification view.
     --   If not available, we use `mini` as the fallback
     "rcarriga/nvim-notify",}}
-	use({
-		"iamcco/markdown-preview.nvim",
-		run = function() vim.fn["mkdp#util#install"]() end,
-	})
 	use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 	use({
 		'mvllow/modes.nvim',
@@ -136,9 +132,7 @@ return packer.startup(function(use)
 	config = function()
 		require('fidget').setup()
 	end}
-	use {
-		"folke/neodev.nvim",
-	}
+	use {"folke/lazydev.nvim"}
 	use {
 		"m4xshen/hardtime.nvim",
 	   requires = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
