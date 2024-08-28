@@ -44,7 +44,7 @@ return packer.startup(function(use)
 	use { "wbthomason/packer.nvim" } -- Have packer manage itself
 	use {'jiangmiao/auto-pairs'}
 	use {'scrooloose/nerdcommenter'}
-	use {'sbdchd/neoformat'}
+	use {'stevearc/conform.nvim'}
 	use {'scrooloose/nerdtree'}
 	use {'neomake/neomake'}
 	use {'machakann/vim-highlightedyank'}
@@ -174,6 +174,8 @@ return packer.startup(function(use)
 	use 'nvim-tree/nvim-tree.lua'
 	use { 'emmanueltouzery/decisive.nvim' }
 	use 'mfussenegger/nvim-dap'
+	use 'ziontee113/color-picker.nvim'
+	use 'NvChad/nvim-colorizer.lua'
 	-- use {
 	--   "zbirenbaum/copilot.lua",
 	--   cmd = "Copilot",

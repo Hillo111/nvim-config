@@ -39,6 +39,8 @@ vim.keymap.set('i', '<C-J>', 'copilot#Accept("\\<CR>")', {
 	replace_keycodes = false
 })
 
+vim.api.nvim_create_user_command('ColorPick', 'PickColorInsert', {})
+
 -- vim.api.nvim_create_user_command('DAPToggleBP', 'lua require"dap".toggle_breakpoint()', {})
 -- vim.api.nvim_create_user_command('DAPContinue', 'lua require"dap".continue()', {});
 -- vim.api.nvim_create_user_command('DAPStepOver', 'lua require"dap".step_over()', {});

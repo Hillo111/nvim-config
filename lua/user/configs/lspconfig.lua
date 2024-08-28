@@ -3,8 +3,9 @@ local lspconfig = require('lspconfig')
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-local servers = {'clangd', 'tsserver', 'pyright', 'rubocop', 'lua_ls', 'bashls', 'phpactor'}
-local navbuddy = require("nvim-navbuddy")
+local servers = {'clangd', 'tsserver', 'pyright', 'rubocop', 'lua_ls', 'bashls', 'phpactor', 'cssls'}
+local navbuddy = require('nvim-navbuddy')
+
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup{
 		capabilities = capabilities,
@@ -36,7 +37,7 @@ lspconfig.pyright.setup{
 
 lspconfig.java_language_server.setup{
   capabilities = capabilities,
-  cmd = { '~/java-language-server/dist/lang_server_mac.sh' },
+  cmd = { '/Users/stas.gannutin/java-language-server/dist/lang_server_mac.sh' },
 
 }
 lspconfig.rust_analyzer.setup{
@@ -64,6 +65,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', 'gdt', "<cmd>tab split | lua vim.lsp.buf.definition()<CR>", opts)
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+    vim.api.nvim_create_user_command('Reformat', 'lua vim.lsp.buf.format()', {})
   end,
 })
-      

@@ -121,6 +121,16 @@ _G.packer_plugins = {
     path = "/Users/saucefishman/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
     url = "https://github.com/hrsh7th/cmp-vsnip"
   },
+  ["color-picker.nvim"] = {
+    loaded = true,
+    path = "/Users/stas.gannutin/.local/share/nvim/site/pack/packer/start/color-picker.nvim",
+    url = "https://github.com/ziontee113/color-picker.nvim"
+  },
+  ["conform.nvim"] = {
+    loaded = true,
+    path = "/Users/stas.gannutin/.local/share/nvim/site/pack/packer/start/conform.nvim",
+    url = "https://github.com/stevearc/conform.nvim"
+  },
   ["decisive.nvim"] = {
     loaded = true,
     path = "/Users/saucefishman/.local/share/nvim/site/pack/packer/start/decisive.nvim",
