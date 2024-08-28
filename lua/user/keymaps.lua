@@ -25,6 +25,10 @@ vim.keymap.set('n', '<leader>nav', ':Navbuddy<CR>', opts)
 
 vim.keymap.set('n', '<A-,>', 'gT', opts)
 vim.keymap.set('n', '<A-.>', 'gt', opts)
+for i = 1, 9 do
+	vim.keymap.set('n', '<A-' .. i .. '>', ':' .. i .. 'tabnext<CR>', opts)
+end
+
 vim.keymap.set('n', '<leader>>', ':+tabmove<CR>', opts)
 vim.keymap.set('n', '<leader><', ':-tabmove<CR>', opts)
 
