@@ -1,5 +1,6 @@
 local builtin = require('telescope.builtin')
 local themes = require('telescope.themes')
+local actions = require('telescope.actions')
 
 require('telescope').setup{
   defaults = {
@@ -7,7 +8,10 @@ require('telescope').setup{
   },
   pickers = {
     find_files = {
-      hidden = true
+      hidden = true,
+      mappings = {
+        i = { ["<CR>"] = actions.select_tab_drop }
+      }
     }
   },
   extensions = {
