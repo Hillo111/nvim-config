@@ -12,7 +12,13 @@ require('telescope').setup{
       mappings = {
         i = { ["<CR>"] = actions.select_tab_drop }
       }
-    }
+    },
+    live_grep = {
+      hidden = true,
+      mappings = {
+        i = { ["<CR>"] = actions.select_tab_drop }
+      }
+    },
   },
   extensions = {
     -- ...
