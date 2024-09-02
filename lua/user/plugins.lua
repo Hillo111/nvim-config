@@ -41,41 +41,41 @@ packer.init({
 
 
 return packer.startup(function(use)
-	use { "wbthomason/packer.nvim" } -- Have packer manage itself
-	use {'jiangmiao/auto-pairs'}
-	use {'scrooloose/nerdcommenter'}
-	use {'stevearc/conform.nvim'}
-	use {'scrooloose/nerdtree'}
-	use {'neomake/neomake'}
-	use {'machakann/vim-highlightedyank'}
+	use 'wbthomason/packer.nvim' -- Have packer manage itself
+	use 'jiangmiao/auto-pairs'
+	use 'scrooloose/nerdcommenter'
+	use 'stevearc/conform.nvim'
+	use 'scrooloose/nerdtree'
+	use 'neomake/neomake'
+	use 'machakann/vim-highlightedyank'
 
-	use {'morhetz/gruvbox'}
-    use {'folke/tokyonight.nvim'}
-	use {'rebelot/kanagawa.nvim'}
+	use 'morhetz/gruvbox'
+    use 'folke/tokyonight.nvim'
+	use 'rebelot/kanagawa.nvim'
 	use 'Mofiqul/vscode.nvim'
 
-	use {'dunstontc/vim-vscode-theme'}
+	use 'dunstontc/vim-vscode-theme'
 
-	use {'myusuf3/numbers.vim'}
-	use {'prabirshrestha/vim-lsp'}
+	use 'myusuf3/numbers.vim'
+	use 'prabirshrestha/vim-lsp'
 	use {
 	    'numToStr/Comment.nvim',
 	    config = function()
 		require('Comment').setup()
 	    end
 	}
-    use {'neovim/nvim-lspconfig'}
+    use 'neovim/nvim-lspconfig'
     use {'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim', 'BurntSushi/ripgrep'} }}
-	use {'nvim-lua/plenary.nvim'}
-    use {'nvim-treesitter/nvim-treesitter'}
-    use {'sharkdp/fd'}
-    use {'folke/trouble.nvim'}
-    use {'lukas-reineke/indent-blankline.nvim'}
-    use {'sheerun/vim-polyglot'}
-	use {'nvim-tree/nvim-web-devicons'}
-	use {'tpope/vim-surround'}
+	use 'nvim-lua/plenary.nvim'
+    use 'nvim-treesitter/nvim-treesitter'
+    use 'sharkdp/fd'
+    use 'folke/trouble.nvim'
+    use 'lukas-reineke/indent-blankline.nvim'
+    use 'sheerun/vim-polyglot'
+	use 'nvim-tree/nvim-web-devicons'
+	use 'tpope/vim-surround'
 
-	use {'edluffy/hologram.nvim'}
+	use 'edluffy/hologram.nvim'
 
 	-- use {'tpope/vim-eunuch', config = function ()
 	-- 	vim.cmd('cnoreabbrev rename Rename')
@@ -94,21 +94,21 @@ return packer.startup(function(use)
 		"Pocco81/auto-save.nvim",
 	})
 
-    use {'hrsh7th/cmp-nvim-lsp'}
-    use {'hrsh7th/cmp-buffer'}
-    use {'hrsh7th/cmp-path'}
-    use {'hrsh7th/cmp-cmdline'}
-    use {'hrsh7th/nvim-cmp'}
+    use 'hrsh7th/cmp-nvim-lsp'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-cmdline'
+    use 'hrsh7th/nvim-cmp'
 
-    use {'hrsh7th/cmp-vsnip'}
-    use {'hrsh7th/vim-vsnip'}
+    use 'hrsh7th/cmp-vsnip'
+    use 'hrsh7th/vim-vsnip'
 
 
 	use {
 		"ThePrimeagen/refactoring.nvim",
 		requires = {
-			{"nvim-lua/plenary.nvim"},
-			{"nvim-treesitter/nvim-treesitter"}
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter"
 		}
 	}
 	use "sindrets/diffview.nvim" 
@@ -132,7 +132,7 @@ return packer.startup(function(use)
 	config = function()
 		require('fidget').setup()
 	end}
-	use {"folke/lazydev.nvim"}
+	use "folke/lazydev.nvim"
 	use {
 		"m4xshen/hardtime.nvim",
 	   requires = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
@@ -153,7 +153,7 @@ return packer.startup(function(use)
 		}
 	}
 
-	use {'yamatsum/nvim-cursorline'}
+	use 'yamatsum/nvim-cursorline'
 	use {
 		'rafcamlet/tabline-framework.nvim'
 	}
@@ -161,8 +161,8 @@ return packer.startup(function(use)
 	  'nvim-lualine/lualine.nvim',
 	  requires = { 'nvim-tree/nvim-web-devicons', opt = true }
 	}
-	use {"gennaro-tedesco/nvim-jqx"}
-	use { 'tamton-aquib/keys.nvim' }
+	use "gennaro-tedesco/nvim-jqx"
+	use 'tamton-aquib/keys.nvim'
 
 	-- use {
 	-- 	'romgrk/barbar.nvim',
@@ -172,10 +172,12 @@ return packer.startup(function(use)
 	-- 	}
 	-- }
 	use 'nvim-tree/nvim-tree.lua'
-	use { 'emmanueltouzery/decisive.nvim' }
+	use 'emmanueltouzery/decisive.nvim'
 	use 'mfussenegger/nvim-dap'
 	use 'ziontee113/color-picker.nvim'
 	use 'NvChad/nvim-colorizer.lua'
+
+	use 'mikavilpas/yazi.nvim'
 	-- use {
 	--   "zbirenbaum/copilot.lua",
 	--   cmd = "Copilot",

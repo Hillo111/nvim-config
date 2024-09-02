@@ -1,0 +1,2 @@
+require('yazi').setup({
+})
