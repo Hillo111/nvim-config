@@ -26,8 +26,6 @@ packer.init({
 	},
 })
 
-
-
 return packer.startup(function(use)
 	use 'wbthomason/packer.nvim' -- Have packer manage itself
 	use 'jiangmiao/auto-pairs'
@@ -65,10 +63,6 @@ return packer.startup(function(use)
 
 	use 'edluffy/hologram.nvim'
 
-	-- use {'tpope/vim-eunuch', config = function ()
-	-- 	vim.cmd('cnoreabbrev rename Rename')
-	-- end}
-
 	use {
 	  'rmagatti/auto-session',
 	  config = function()
@@ -99,15 +93,11 @@ return packer.startup(function(use)
 			"nvim-treesitter/nvim-treesitter"
 		}
 	}
-	use "sindrets/diffview.nvim" 
+	use "sindrets/diffview.nvim"
 	use "folke/todo-comments.nvim"
 	use "stevearc/oil.nvim"
 	use { "David-Kunz/gen.nvim" }
-	use { "folke/noice.nvim", requires = {"MunifTanjim/nui.nvim",
-    -- OPTIONAL:
-    --   `nvim-notify` is only needed, if you want to use the notification view.
-    --   If not available, we use `mini` as the fallback
-    "rcarriga/nvim-notify",}}
+	use { "folke/noice.nvim", requires = {"MunifTanjim/nui.nvim", "rcarriga/nvim-notify",}}
 	use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 	use({
 		'mvllow/modes.nvim',
@@ -136,8 +126,8 @@ return packer.startup(function(use)
 			"neovim/nvim-lspconfig",
 			"SmiteshP/nvim-navic",
 			"MunifTanjim/nui.nvim",
-			"numToStr/Comment.nvim",        -- Optional
-			"nvim-telescope/telescope.nvim" -- Optional
+			"numToStr/Comment.nvim",
+			"nvim-telescope/telescope.nvim"
 		}
 	}
 
@@ -152,13 +142,6 @@ return packer.startup(function(use)
 	use "gennaro-tedesco/nvim-jqx"
 	use 'tamton-aquib/keys.nvim'
 
-	-- use {
-	-- 	'romgrk/barbar.nvim',
-	-- 	requires = {
-	-- 		'nvim-tree/nvim-web-devicons',
-	-- 		'lewis6991/gitsigns.nvim'
-	-- 	}
-	-- }
 	use 'nvim-tree/nvim-tree.lua'
 	use 'emmanueltouzery/decisive.nvim'
 	use 'mfussenegger/nvim-dap'
@@ -166,14 +149,6 @@ return packer.startup(function(use)
 	use 'NvChad/nvim-colorizer.lua'
 
 	use 'mikavilpas/yazi.nvim'
-	-- use {
-	--   "zbirenbaum/copilot.lua",
-	--   cmd = "Copilot",
-	--   event = "InsertEnter",
-	--   config = function()
-	-- 	require("copilot").setup({})
-	--   end,
-	-- }
 
 	-- Automcatically set up your config after cloning packer.nvim
 	if packer_bootstrap then
