@@ -3,7 +3,7 @@ local lspconfig = require('lspconfig')
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-local servers = {'clangd', 'tsserver', 'pyright', 'rubocop', 'lua_ls', 'bashls', 'phpactor', 'cssls', 'jdtls'}
+local servers = {'clangd', 'pyright', 'rubocop', 'lua_ls', 'bashls', 'phpactor', 'cssls', 'jdtls'}
 local navbuddy = require('nvim-navbuddy')
 
 for _, lsp in ipairs(servers) do
@@ -49,6 +49,54 @@ lspconfig.rust_analyzer.setup{
       }
     }
   }
+}
+
+local function rename_file()
+    local source_file, target_file
+
+    vim.ui.input({
+        prompt = "Source : ",
+        completion = "file",
+        default = vim.api.nvim_buf_get_name(0)
+    },
+        function(input)
+            source_file = input
+        end
+    )
+    vim.ui.input({
+        prompt = "Target : ",
+        completion = "file",
+        default = source_file
+    },
+        function(input)
+            target_file = input
+        end
+    )
+
+    local params = {
+        command = "_typescript.applyRenameFile",
+        arguments = {
+            {
+                sourceUri = source_file,
+                targetUri = target_file,
+            },
+        },
+        title = ""
+    }
+
+    vim.lsp.util.rename(source_file, target_file)
+    vim.lsp.buf.execute_command(params)
+end
+
+
+lspconfig.tsserver.setup {
+  capabilities = capabilities,
+    commands = {
+        RenameFile = {
+            rename_file,
+            description = "Rename File"
+        },
+    }
 }
 
 vim.api.nvim_create_autocmd('LspAttach', {
