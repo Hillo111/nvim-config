@@ -113,6 +113,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', 'gdt', "<cmd>tab split | lua vim.lsp.buf.definition()<CR>", opts)
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+    vim.api.nvim_create_user_command('Rename', 'lua vim.lsp.buf.rename()', {})
     vim.api.nvim_create_user_command('Reformat', 'lua vim.lsp.buf.format()', {})
   end,
 })
