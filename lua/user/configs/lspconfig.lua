@@ -3,7 +3,7 @@ local lspconfig = require('lspconfig')
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-local servers = {'clangd', 'pyright', 'rubocop', 'lua_ls', 'bashls', 'phpactor', 'cssls', 'jdtls'}
+local servers = {'clangd', 'pyright', 'rubocop', 'lua_ls', 'bashls', 'phpactor', 'cssls', 'jdtls', 'yamlls'}
 local navbuddy = require('nvim-navbuddy')
 
 for _, lsp in ipairs(servers) do
