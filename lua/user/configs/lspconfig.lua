@@ -35,11 +35,6 @@ lspconfig.pyright.setup{
   }
 }
 
-lspconfig.java_language_server.setup{
-  capabilities = capabilities,
-  cmd = { '/Users/stas.gannutin/java-language-server/dist/lang_server_mac.sh' },
-
-}
 lspconfig.rust_analyzer.setup{
 	capabilities = capabilities,
   settings = {
