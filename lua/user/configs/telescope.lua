@@ -2,7 +2,9 @@ local builtin = require('telescope.builtin')
 local themes = require('telescope.themes')
 local actions = require('telescope.actions')
 
-require('telescope').setup{
+local telescope = require('telescope')
+
+telescope.setup{
   defaults = {
     file_ignore_patterns = { "dist/*", 'bin/*', 'include/*', 'node_modules/*', 'lib/*', '.git/*' },
   },

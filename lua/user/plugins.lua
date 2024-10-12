@@ -149,6 +149,23 @@ return packer.startup(function(use)
 	use 'NvChad/nvim-colorizer.lua'
 
 	use 'mikavilpas/yazi.nvim'
+	use 'mfussenegger/nvim-jdtls'
+	use {
+	  "danielfalk/smart-open.nvim",
+	  branch = "0.2.x",
+	  config = function()
+		require"telescope".load_extension("smart_open")
+	  end,
+	  requires = {
+		{"kkharji/sqlite.lua"},
+		-- Only required if using match_algorithm fzf
+		{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
+		-- Optional.  If installed, native fzy will be used when match_algorithm is fzy
+		{ "nvim-telescope/telescope-fzy-native.nvim" },
+	  }
+	}
+	
+	use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
 
 	-- Automcatically set up your config after cloning packer.nvim
 	if packer_bootstrap then

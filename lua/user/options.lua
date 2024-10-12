@@ -33,4 +33,9 @@ opt.splitbelow = true            -- bool: Place new window below the current one
 opt.shell = 'zsh'
 opt.cmdheight = 0
 
+opt.foldcolumn = '1' -- '0' is not bad
+opt.foldlevel = 20 -- Using ufo provider need a large value, feel free to decrease the value
+opt.foldlevelstart = 99
+opt.foldenable = true
+
 vim.cmd[[ set synmaxcol=256 ]]
