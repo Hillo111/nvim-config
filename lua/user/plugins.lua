@@ -166,6 +166,13 @@ return packer.startup(function(use)
 	}
 	
 	use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
+	use({
+	  'Wansmer/treesj',
+	  requires = { 'nvim-treesitter/nvim-treesitter' }, -- if you install parsers with `nvim-treesitter`
+	  config = function()
+		require('treesj').setup({--[[ your config ]]})
+	  end,
+	})
 
 	-- Automcatically set up your config after cloning packer.nvim
 	if packer_bootstrap then
