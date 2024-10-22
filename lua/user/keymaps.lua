@@ -1,51 +1,54 @@
 local opts = { noremap = true, silent = true }
+local keyset = vim.keymap.set
 
 local builtin = require('telescope.builtin')
-vim.keymap.set('', '<C-p>', builtin.find_files, opts)
-vim.keymap.set('', '<C-f>', builtin.live_grep, opts)
-vim.keymap.set('', '<leader>his', builtin.git_bcommits, opts)
-vim.keymap.set('', '<leader>b', builtin.git_branches, opts)
+keyset('', '<C-p>', builtin.find_files, opts)
+keyset('', '<C-f>', builtin.live_grep, opts)
+keyset('', '<leader>his', builtin.git_bcommits, opts)
+keyset('', '<leader>b', builtin.git_branches, opts)
 
-vim.keymap.set('t', '<Esc>', '<C-n><C-\\><C-n>')
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', opts)
+keyset('t', '<Esc>', '<C-n><C-\\><C-n>')
+keyset('n', '<Esc>', '<cmd>nohlsearch<CR>', opts)
 
-vim.keymap.set('n', '<A-e>', '<cmd>NvimTreeFocus<CR>', opts)
+keyset('n', '<A-e>', '<cmd>NvimTreeFocus<CR>', opts)
 
--- vim.keymap.set('n', '<cmd>cd *')
-vim.keymap.set('n', '<leader>e', '<cmd>lua vim.diagnostic.open_float(0, {scope="line"})<CR>', opts)
-vim.keymap.set('i', '<C-e>', '<esc><cmd>lua vim.diagnostic.open_float(0, {scope="line"})<CR>a', opts)
+-- keyset('n', '<cmd>cd *')
+keyset('n', '<leader>e', '<cmd>lua vim.diagnostic.open_float(0, {scope="line"})<CR>', opts)
+keyset('i', '<C-e>', '<esc><cmd>lua vim.diagnostic.open_float(0, {scope="line"})<CR>a', opts)
 
-vim.keymap.set('n', '<leader>g', ':DiffviewOpen ', opts)
+keyset('n', '<leader>g', ':DiffviewOpen ', opts)
 
 -- Tab controls
-vim.keymap.set('n', '<A-w>', '<cmd>tabclose<CR>', opts) -- opt-w
+keyset('n', '<A-w>', '<cmd>tabclose<CR>', opts) -- opt-w
 
-vim.keymap.set({'n', 'v'}, '<leader>?',	'<cmd>Gen<CR>', opts)
-vim.keymap.set('n', '<leader>nav', '<cmd>Navbuddy<CR>', opts)
+keyset({'n', 'v'}, '<leader>?',	'<cmd>Gen<CR>', opts)
+keyset('n', '<leader>nav', '<cmd>Navbuddy<CR>', opts)
 
-vim.keymap.set('n', '<A-,>', 'gT', opts)
-vim.keymap.set('n', '<A-.>', 'gt', opts)
+keyset('n', '<A-,>', 'gT', opts)
+keyset('n', '<A-.>', 'gt', opts)
 for i = 1, 9 do
-	vim.keymap.set('n', '<A-' .. i .. '>', '<cmd>' .. i .. 'tabnext<CR>', opts)
+	keyset('n', '<A-' .. i .. '>', '<cmd>' .. i .. 'tabnext<CR>', opts)
 end
 
-vim.keymap.set('n', '<leader>>', '<cmd>+tabmove<CR>', opts)
-vim.keymap.set('n', '<leader><', '<cmd>-tabmove<CR>', opts)
+keyset('n', '<leader>>', '<cmd>+tabmove<CR>', opts)
+keyset('n', '<leader><', '<cmd>-tabmove<CR>', opts)
 
-vim.keymap.set('n', '<leader>c<CR>', '<cmd>NoiceDismiss<CR>', opts)
+keyset('n', '<leader>c<CR>', '<cmd>NoiceDismiss<CR>', opts)
 
-vim.keymap.set('n', '<C-a>', 'ggVG', opts)
-vim.keymap.set('n', 'Y', '\"*y', opts)
-vim.keymap.set('v', 'Y', '\"*y', opts)
+keyset('n', '<C-a>', 'ggVG', opts)
+keyset('n', 'Y', '\"*y', opts)
+keyset('v', 'Y', '\"*y', opts)
 
-vim.keymap.set('i', '<C-J>', 'copilot#Accept("\\<CR>")', {
+keyset('i', '<C-J>', 'copilot#Accept("\\<CR>")', {
 	expr = true,
 	replace_keycodes = false
 })
 
 vim.api.nvim_create_user_command('ColorPick', 'PickColorInsert', {})
 
-vim.keymap.set('n', '<leader>-', '<cmd>Yazi<CR>', opts)
+keyset('n', '<leader>-', '<cmd>Yazi<CR>', opts)
+
+keyset('n', '<C-q>', '<cmd>qa<CR>', opts)
 
 -- vim.api.nvim_create_user_command('DAPToggleBP', 'lua require"dap".toggle_breakpoint()', {})
 -- vim.api.nvim_create_user_command('DAPContinue', 'lua require"dap".continue()', {});
