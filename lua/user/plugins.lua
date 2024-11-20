@@ -28,7 +28,7 @@ packer.init({
 
 return packer.startup(function(use)
 	use 'wbthomason/packer.nvim' -- Have packer manage itself
-	use 'jiangmiao/auto-pairs'
+	use 'windwp/nvim-autopairs'
 	use 'scrooloose/nerdcommenter'
 	use 'stevearc/conform.nvim'
 	use 'scrooloose/nerdtree'

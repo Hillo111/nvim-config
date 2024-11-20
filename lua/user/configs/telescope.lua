@@ -6,7 +6,7 @@ local telescope = require('telescope')
 
 telescope.setup{
   defaults = {
-    file_ignore_patterns = { "dist/*", 'bin/*', 'include/*', 'node_modules/*', 'lib/*', '.git/*' },
+    file_ignore_patterns = { "dist/*", 'bin/*', 'node_modules/*', 'lib/*', '.git/*' },
   },
   pickers = {
     find_files = {
