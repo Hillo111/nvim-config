@@ -30,7 +30,7 @@ lspconfig.pyright.setup{
 		useLibraryCodeForTypes = true,
 		diagnosticMode = "openFilesOnly",
 	  },
-	  pythonPath = "/users/stas.gannutin/test/bin/python3",
+	  pythonPath = "/users/stas.gannutin/Projects/goaway-test/bin/python3",
 	}
   }
 }
@@ -83,14 +83,26 @@ local function rename_file()
     vim.lsp.buf.execute_command(params)
 end
 
+local function organize_imports()
+  local params = {
+    command = "_typescript.organizeImports",
+    arguments = {vim.api.nvim_buf_get_name(0)},
+    title = ""
+  }
+  vim.lsp.buf.execute_command(params)
+end
 
-lspconfig.tsserver.setup {
+lspconfig.ts_ls.setup {
   capabilities = capabilities,
     commands = {
         RenameFile = {
             rename_file,
             description = "Rename File"
         },
+        OrganizeImports = {
+            organize_imports,
+            description = "Organize Imports"
+        }
     }
 }
 
@@ -109,6 +121,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+    vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
     vim.api.nvim_create_user_command('Rename', 'lua vim.lsp.buf.rename()', {})
     vim.api.nvim_create_user_command('Reformat', 'lua vim.lsp.buf.format()', {})
   end,
