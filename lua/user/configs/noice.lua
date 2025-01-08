@@ -32,3 +32,20 @@ require("noice").setup({
   routes = {
   }
 })
+
+-- custom keymap function to toggle noice
+vim.g.noice_enabled = true
+
+function _G.toggle_noice()
+  if vim.g.noice_enabled then
+    require("noice").disable()
+    vim.g.noice_enabled = false
+  else
+    require("noice").enable()
+    vim.g.noice_enabled = true
+  end
+end
+
+vim.api.nvim_set_keymap("n", "<leader>nt", "<cmd>lua toggle_noice()<CR>", { noremap = true, silent = true })
+
+
